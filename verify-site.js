@@ -39,6 +39,7 @@ const compose = read("compose.yaml");
 const nginxConf = read("docker/nginx/default.conf");
 const dockerignore = read(".dockerignore");
 const readme = read("README.md");
+const netlify = read("netlify.toml");
 
 [
   "assets/images/profile.png",
@@ -167,6 +168,14 @@ const readme = read("README.md");
   "docker compose up -d --build",
   "http://localhost:8080",
   "proxy_pass http://127.0.0.1:8080;",
+  "Netlify",
+  "Publish directory",
 ].forEach((text) => assertIncludes(readme, text, "README Docker instructions"));
+
+[
+  '[build]',
+  'command = "mkdir -p dist && cp -r index.html assets robots.txt dist/"',
+  'publish = "dist"',
+].forEach((text) => assertIncludes(netlify, text, "Netlify behavior"));
 
 console.log("Static invitation verification passed.");

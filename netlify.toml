@@ -1,0 +1,8 @@
+[build]
+  command = "mkdir -p dist && cp -r index.html assets robots.txt dist/"
+  publish = "dist"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"

@@ -81,3 +81,28 @@ server {
 ```
 
 Untuk HTTPS, pasang SSL di Nginx host atau gunakan Certbot di VPS.
+
+## Deploy Ke Netlify
+
+Netlify tidak memakai Dockerfile atau `compose.yaml` untuk static site ini. Untuk Netlify, cukup deploy file HTML dan folder `assets`.
+
+### Opsi Cepat: Drag and Drop
+
+1. Buka Netlify Dashboard.
+2. Pilih **Add new site** lalu **Deploy manually**.
+3. Upload folder berisi:
+   - `index.html`
+   - `assets/`
+   - `robots.txt`
+
+### Opsi Rapi: Git Deploy
+
+1. Push project ini ke GitHub/GitLab/Bitbucket.
+2. Di Netlify, pilih **Add new site** lalu **Import from Git**.
+3. Pilih repository project ini.
+4. Build settings otomatis dibaca dari `netlify.toml`:
+   - Build command: `mkdir -p dist && cp -r index.html assets robots.txt dist/`
+   - Publish directory: `dist`
+5. Deploy.
+
+Konfigurasi `netlify.toml` dibuat supaya file Docker, README, dan script verifikasi tidak ikut dipublish sebagai file publik.
