@@ -1,0 +1,8 @@
+.git
+.gitignore
+node_modules
+npm-debug.log
+Dockerfile
+compose.yaml
+README.md
+verify-site.js

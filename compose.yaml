@@ -1,0 +1,10 @@
+services:
+  undangan-seminar:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: undangan-seminar:latest
+    container_name: undangan-seminar
+    ports:
+      - "8080:80"
+    restart: unless-stopped
