@@ -61,6 +61,8 @@ const readme = read("README.md");
   "Selasa, 9 Juni 2026",
   "10.00 WIB",
   "Ruang Sidang Jurusan Informatika",
+  "Lokasi Seminar",
+  "Jurusan Informatika Universitas Tanjungpura",
 ].forEach((text) => assertIncludes(html, text, "invitation text"));
 
 [
@@ -73,6 +75,11 @@ const readme = read("README.md");
   "assets/favicon/favicon.ico",
   "assets/favicon/apple-touch-icon.png",
   "assets/favicon/site.webmanifest",
+  "https://www.google.com/maps/embed?pb=",
+  "https://www.google.com/maps/search/?api=1&query=Jurusan%20Informatika%20Universitas%20Tanjungpura",
+  "loading=\"lazy\"",
+  "referrerpolicy=\"no-referrer-when-downgrade\"",
+  "Buka Lokasi di Google Maps",
   "gsap",
   "ScrollTrigger",
   "Buka Undangan",
@@ -87,6 +94,8 @@ const readme = read("README.md");
   "--button-bg-hover",
   ".side-ornament::before",
   ".side-ornament::after",
+  ".map-frame",
+  "aspect-ratio: 16 / 9",
   "scaleX(-1)",
   "min-height: 100vh",
 ].forEach((text) => assertIncludes(css, text, "CSS behavior"));
